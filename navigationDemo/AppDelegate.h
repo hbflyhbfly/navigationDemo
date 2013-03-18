@@ -13,3 +13,7 @@
 @property (strong, nonatomic) UIWindow *window;
 
 @end
+
+@interface UINavigationBar (SetBackGround)
+-(void)drawRect:(CGRect)rect;
+@end

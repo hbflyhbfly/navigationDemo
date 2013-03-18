@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "RootViewController.h"
+
 
 @implementation AppDelegate
 
@@ -16,6 +18,11 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    RootViewController *root = [[RootViewController alloc]init];
+    UINavigationController *navigation = [[UINavigationController alloc]initWithRootViewController:root];
+    self.window.rootViewController = navigation;
+    //ios5.0后，给导航栏添加背景图片
+    //[navigation.navigationBar setBackgroundImage:[UIImage imageNamed:@"图片"] forBarMetrics:UIBarMetricsDefault];
     return YES;
 }
 
@@ -46,4 +53,13 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+@end
+
+//定义类别，给toolbar添加背景图片
+@implementation UINavigationBar (SetBackGround)
+-(void)drawRect:(CGRect)rect
+{
+    UIImage *image = [UIImage imageNamed:@""];
+    [image drawInRect:rect];
+}
 @end
